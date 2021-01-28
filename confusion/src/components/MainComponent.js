@@ -9,13 +9,14 @@ import DishDetail from './DishdetailComponent';
 import Contact from './ContactComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterCompoent';
+import About from './AboutComponent';
 import { Switch, Route, Redirect} from 'react-router-dom';
 
 class Main extends Component {
 
     constructor(props){
         super(props);
-
+ 
         this.state = {
             dishes: DISHES,
             comments: COMMENTS,
@@ -50,6 +51,7 @@ class Main extends Component {
                     <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes}/> } />
                     <Route path="/menu/:dishId" component={DishWithId} />
                     <Route exact path="/contactus" component={Contact} />
+                    <Route exact path="/aboutus" component={() => <About leaders={this.state.leaders} />} />
                     <Redirect to="/home" />
                 </Switch>
                 <Footer />
